@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tiles-SoulMaze.png-14e4484a46440aef574bbc4b476702f8.stex"
+path="res://.import/Tiles-Darkmap-1.png-51477368f1428641166dafd31af9ed46.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Assets/Tile/Tiles-SoulMaze.png"
-dest_files=[ "res://.import/Tiles-SoulMaze.png-14e4484a46440aef574bbc4b476702f8.stex" ]
+source_file="res://src/Assets/Tile/Tiles-Darkmap-1.png"
+dest_files=[ "res://.import/Tiles-Darkmap-1.png-51477368f1428641166dafd31af9ed46.stex" ]
 
 [params]
 
