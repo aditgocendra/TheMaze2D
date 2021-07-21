@@ -1,0 +1,283 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://src/Assets/Shader/Transistion.shader" type="Shader" id=1]
+[ext_resource path="res://src/Assets/Masks/hole.png" type="Texture" id=2]
+[ext_resource path="res://src/Game/Game.gd" type="Script" id=3]
+[ext_resource path="res://src/Assets/UserInterface/Dialog-Box.png" type="Texture" id=4]
+[ext_resource path="res://src/Assets/UserInterface/Character-Dialog1.png" type="Texture" id=5]
+[ext_resource path="res://src/Assets/Button/DialogBtn.png" type="Texture" id=6]
+[ext_resource path="res://src/Assets/Button/DialogBtn-press.png" type="Texture" id=7]
+[ext_resource path="res://src/Assets/Button/Button-Up.png" type="Texture" id=8]
+[ext_resource path="res://src/Assets/Button/Button-Right.png" type="Texture" id=9]
+[ext_resource path="res://src/Assets/Button/Button-Down.png" type="Texture" id=10]
+[ext_resource path="res://src/Assets/Button/Button-Left.png" type="Texture" id=11]
+[ext_resource path="res://src/Assets/Button/Button-ChangeMap.png" type="Texture" id=12]
+[ext_resource path="res://src/Assets/Font/joystix_dynamic.tres" type="DynamicFont" id=13]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/cutoff = 1.0
+shader_param/smooth_size = 0.1
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/mask = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "dead_dialog"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogContainer/HBoxContainer:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "empty_chest_dialog"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogContainer/HBoxContainer:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogContainer/HBoxContainer:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogContainer/HBoxContainer:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("LayerTrans:material:shader_param/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 0.0, 1.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_map"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogContainer/HBoxContainer:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="LayerTrans" type="ColorRect" parent="UserInterface"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface"]
+pause_mode = 2
+anims/dead_dialog = SubResource( 2 )
+anims/empty_chest_dialog = SubResource( 3 )
+anims/hide_dialog = SubResource( 4 )
+anims/show_dialog = SubResource( 5 )
+anims/trans_map = SubResource( 6 )
+anims/win_dialog = SubResource( 7 )
+
+[node name="DialogContainer" type="Control" parent="UserInterface"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/DialogContainer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -332.5
+margin_top = -175.362
+margin_right = 332.5
+margin_bottom = -44.3621
+rect_scale = Vector2( 1e-05, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterDialog" type="TextureRect" parent="UserInterface/DialogContainer/HBoxContainer"]
+margin_right = 83.0
+margin_bottom = 131.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogBackground" type="TextureRect" parent="UserInterface/DialogContainer/HBoxContainer"]
+margin_left = 87.0
+margin_top = 6.0
+margin_right = 665.0
+margin_bottom = 125.0
+size_flags_vertical = 4
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextDialog" type="RichTextLabel" parent="UserInterface/DialogContainer/HBoxContainer/DialogBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -216.5
+margin_top = -38.0
+margin_right = 216.5
+margin_bottom = 38.0
+custom_fonts/normal_font = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogBtn" type="TextureButton" parent="UserInterface/DialogContainer/HBoxContainer/DialogBackground"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -65.3483
+margin_top = -71.3484
+margin_right = -13.3483
+margin_bottom = -13.3484
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogTimer" type="Timer" parent="UserInterface/DialogContainer"]
+wait_time = 0.05
+
+[node name="DirectionButton" type="Control" parent="UserInterface"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 37.2968
+margin_top = -150.307
+margin_right = 110.297
+margin_bottom = -87.3071
+rect_scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Up" type="TouchScreenButton" parent="UserInterface/DirectionButton"]
+position = Vector2( 26.3631, 0 )
+z_index = -1
+normal = ExtResource( 8 )
+action = "move_up"
+
+[node name="Down" type="TouchScreenButton" parent="UserInterface/DirectionButton"]
+position = Vector2( 26.3631, 31.7024 )
+z_index = -1
+normal = ExtResource( 10 )
+action = "move_bottom"
+
+[node name="Left" type="TouchScreenButton" parent="UserInterface/DirectionButton"]
+position = Vector2( 1.00111, 19.3552 )
+z_index = -1
+normal = ExtResource( 11 )
+action = "move_left"
+
+[node name="Right" type="TouchScreenButton" parent="UserInterface/DirectionButton"]
+position = Vector2( 42.0474, 19.3552 )
+z_index = -1
+normal = ExtResource( 9 )
+action = "move_right"
+
+[node name="ContainerMapBtn" type="Control" parent="UserInterface"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -104.913
+margin_top = -150.816
+margin_right = -39.9128
+margin_bottom = -85.8165
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeMap" type="TouchScreenButton" parent="UserInterface/ContainerMapBtn"]
+z_index = -1
+normal = ExtResource( 12 )
+action = "change_map"
+
+[connection signal="animation_finished" from="UserInterface/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="UserInterface/DialogContainer/HBoxContainer/DialogBackground/DialogBtn" to="." method="_on_DialogBtn_pressed"]
+[connection signal="timeout" from="UserInterface/DialogContainer/DialogTimer" to="." method="_on_DialogTimer_timeout"]

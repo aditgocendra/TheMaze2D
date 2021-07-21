@@ -1,0 +1,18 @@
+{
+  "dialog": {
+    "chest-dialog": {
+      "chest_empty": "It seems that someone has entered this labyrinth.",
+      "chest_gold": "Finally i found!!!!"
+    },
+    "dark-map": {
+      "on-dead": "Nope!!!!, I forgot the traps scattered everywhere!!!",
+      "show": true,
+      "text": "Where the treasure is, I must find it!!, I can find treasure, by looking at it from a slightly different side of the world."
+    },
+    "light-map": {
+      "on-dead": "Please, I can't breathe, aaaaaaaaa",
+      "show": true,
+      "text": "Feels a little tight, I can't stay long in this unreal world."
+    }
+  }
+}

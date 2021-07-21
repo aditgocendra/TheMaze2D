@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/UserInterface/MainMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://src/Assets/Button/Quit-Btn.png" type="Texture" id=2]
+[ext_resource path="res://src/Assets/Background/Background.png" type="Texture" id=3]
+[ext_resource path="res://src/Assets/Button/Start-Btn.png" type="Texture" id=4]
+[ext_resource path="res://src/Assets/Font/joystix_dynamic.tres" type="DynamicFont" id=5]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -79.0
+margin_top = -50.0
+margin_right = 79.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="TextureButton" parent="Background/VBoxContainer"]
+margin_right = 158.0
+margin_bottom = 48.0
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="Background/VBoxContainer"]
+margin_top = 52.0
+margin_right = 158.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 2 )
+
+[node name="VersionGame" type="Label" parent="Background"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -192.159
+margin_top = -31.2952
+margin_right = -36.1586
+margin_bottom = -14.2952
+custom_fonts/font = ExtResource( 5 )
+text = "Version 1.0.0"
+
+[connection signal="pressed" from="Background/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
