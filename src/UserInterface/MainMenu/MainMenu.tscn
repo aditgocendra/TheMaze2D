@@ -52,16 +52,20 @@ margin_bottom = 100.0
 texture_normal = ExtResource( 2 )
 
 [node name="VersionGame" type="Label" parent="Background"]
-anchor_left = 1.0
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -192.159
-margin_top = -31.2952
-margin_right = -36.1586
-margin_bottom = -14.2952
+margin_left = -416.0
+margin_top = -25.4949
+margin_right = 416.0
+margin_bottom = -8.49487
 custom_fonts/font = ExtResource( 5 )
-text = "Version 1.0.0"
+text = "Version 0.0.2  "
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="Background/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
