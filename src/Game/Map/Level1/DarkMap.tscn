@@ -90,10 +90,6 @@ tracks/0/keys = {
 
 [node name="DarkMap" type="Node2D"]
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 638.085 ],
-"_edit_vertical_guides_": [ 834.033 ]
-}
 type_map = "DarkMap"
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -112,7 +108,6 @@ z_index = 1
 collision_mask = 2
 
 [node name="Light2D" type="Light2D" parent="PlayerRoot/Player"]
-visible = false
 scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 mode = 2
@@ -120,7 +115,6 @@ shadow_enabled = true
 shadow_color = Color( 0.141176, 0.113725, 0.113725, 0 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -129,11 +123,10 @@ playback_speed = 0.5
 anims/light = SubResource( 5 )
 
 [node name="ChestGroup" type="Node2D" parent="."]
-visible = false
 position = Vector2( -1.5, -1.625 )
 
 [node name="AreaChest-Gold" parent="ChestGroup" instance=ExtResource( 6 )]
-position = Vector2( 560.573, 78.7166 )
+position = Vector2( 608.036, 225.305 )
 
-[node name="AreaChest-Gold2" parent="ChestGroup" instance=ExtResource( 7 )]
-position = Vector2( 306.961, 301.722 )
+[node name="AreaChest-Empty" parent="ChestGroup" instance=ExtResource( 7 )]
+position = Vector2( 608.464, 479.389 )

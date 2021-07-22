@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Game/Chest/Gold-Chest.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.4614, 16.032 )
+extents = Vector2( 24.5114, 25.1931 )
 
 [node name="AreaChest-Gold" type="Area2D"]
 script = ExtResource( 2 )

@@ -25,6 +25,7 @@ PlayerSignal="*res://src/Singleton/PlayerSignal.gd"
 
 window/size/width=832
 window/size/height=480
+window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
