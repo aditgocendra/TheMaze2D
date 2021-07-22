@@ -1,19 +1,19 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Game/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Assets/Tile/Tiles-Lightmap-1.png" type="Texture" id=2]
-[ext_resource path="res://src/Game/Trap/NeedleTrap.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Game/Map/Level1/LightMap.gd" type="Script" id=5]
+[ext_resource path="res://src/Game/Map/Adventure/Level1/LightMap.gd" type="Script" id=2]
+[ext_resource path="res://src/Game/Trap/NeedleTrap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Assets/Tile/Tiles-Lightmap-1.png" type="Texture" id=4]
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
-[sub_resource type="TileSet" id=8]
+[sub_resource type="TileSet" id=3]
 0/name = "Tiles-Lightmap-1.png 0"
-0/texture = ExtResource( 2 )
+0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 64, 64 )
@@ -22,19 +22,19 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 6 )
+0/shape = SubResource( 1 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 1/name = "Tiles-Lightmap-1.png 1"
-1/texture = ExtResource( 2 )
+1/texture = ExtResource( 4 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 64, 0, 64, 64 )
@@ -43,19 +43,19 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 7 )
+1/shape = SubResource( 2 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
 2/name = "Tiles-Lightmap-1.png 2"
-2/texture = ExtResource( 2 )
+2/texture = ExtResource( 4 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 128, 0, 64, 64 )
@@ -76,11 +76,11 @@ bg_color = Color( 0.607843, 0.164706, 0.164706, 1 )
 bg_color = Color( 0.2, 0.0784314, 0.894118, 1 )
 
 [node name="LightMap" type="Node2D"]
-script = ExtResource( 5 )
+script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0, -1 )
-tile_set = SubResource( 8 )
+tile_set = SubResource( 3 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 0, 0, 65536, 0, 0, 65537, 2, 0, 65538, 0, 0, 65539, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65543, 2, 0, 65544, 2, 0, 65545, 2, 0, 65546, 2, 0, 65547, 2, 0, 65548, 0, 0, 131072, 0, 0, 131073, 2, 0, 131074, 0, 0, 131075, 2, 0, 131076, 0, 0, 131077, 2, 0, 131078, 0, 0, 131079, 2, 0, 131080, 0, 0, 131081, 1, 0, 131082, 1, 0, 131083, 2, 0, 131084, 0, 0, 196608, 0, 0, 196609, 2, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 2, 0, 196614, 1, 0, 196615, 1, 0, 196616, 0, 0, 196617, 2, 0, 196618, 2, 0, 196619, 2, 0, 196620, 0, 0, 262144, 0, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 2, 0, 262156, 0, 0, 327680, 0, 0, 327681, 2, 0, 327682, 1, 0, 327683, 1, 0, 327684, 2, 0, 327685, 1, 0, 327686, 1, 0, 327687, 2, 0, 327688, 2, 0, 327689, 2, 0, 327690, 2, 0, 327691, 2, 0, 327692, 0, 0, 393216, 0, 0, 393217, 2, 0, 393218, 2, 0, 393219, 2, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 0, 0, 393225, 1, 0, 393226, 1, 0, 393227, 2, 0, 393228, 0, 0, 458752, 0, 0, 458753, 2, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 2, 0, 458759, 1, 0, 458760, 1, 0, 458761, 2, 0, 458762, 2, 0, 458763, 2, 0, 458764, 0, 0, 524288, 0, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 0, 0, 524299, 2, 0, 524300, 0, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0 )
 
@@ -92,16 +92,16 @@ z_index = 1
 [node name="GroupTrap" type="Node2D" parent="."]
 visible = false
 
-[node name="NeedleTrap" parent="GroupTrap" instance=ExtResource( 4 )]
+[node name="NeedleTrap" parent="GroupTrap" instance=ExtResource( 3 )]
 position = Vector2( 332.592, 243.109 )
 
-[node name="NeedleTrap2" parent="GroupTrap" instance=ExtResource( 4 )]
+[node name="NeedleTrap2" parent="GroupTrap" instance=ExtResource( 3 )]
 position = Vector2( 498.97, 146.892 )
 
-[node name="NeedleTrap3" parent="GroupTrap" instance=ExtResource( 4 )]
+[node name="NeedleTrap3" parent="GroupTrap" instance=ExtResource( 3 )]
 position = Vector2( 494.24, 337.766 )
 
-[node name="NeedleTrap4" parent="GroupTrap" instance=ExtResource( 4 )]
+[node name="NeedleTrap4" parent="GroupTrap" instance=ExtResource( 3 )]
 position = Vector2( 271.895, 302.659 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -129,13 +129,13 @@ autostart = true
 
 [node name="GroupTrap2" type="Node2D" parent="."]
 
-[node name="NeedleTrap" parent="GroupTrap2" instance=ExtResource( 4 )]
+[node name="NeedleTrap" parent="GroupTrap2" instance=ExtResource( 3 )]
 position = Vector2( 288.359, 294.201 )
 
-[node name="NeedleTrap2" parent="GroupTrap2" instance=ExtResource( 4 )]
+[node name="NeedleTrap2" parent="GroupTrap2" instance=ExtResource( 3 )]
 position = Vector2( 726.119, 353.691 )
 
-[node name="NeedleTrap3" parent="GroupTrap2" instance=ExtResource( 4 )]
+[node name="NeedleTrap3" parent="GroupTrap2" instance=ExtResource( 3 )]
 position = Vector2( 233.486, 100.56 )
 
 [connection signal="value_changed" from="CanvasLayer/ProgressTimer" to="." method="_on_ProgressTimer_value_changed"]

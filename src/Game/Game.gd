@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var dark_map = preload("res://src/Game/Map/Level1/DarkMap.tscn").instance()
-onready var light_map = preload("res://src/Game/Map/Level1/LightMap.tscn").instance()
+onready var dark_map = preload("res://src/Game/Map/Adventure/Level1/DarkMap.tscn").instance()
+onready var light_map = preload("res://src/Game/Map/Adventure/Level1/LightMap.tscn").instance()
 
 onready var map_node = $Map
 onready var animation_player = $UserInterface/AnimationPlayer 
