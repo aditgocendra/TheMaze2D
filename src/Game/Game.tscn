@@ -254,12 +254,14 @@ __meta__ = {
 }
 
 [node name="Up" type="TouchScreenButton" parent="UserInterface/DirectionButton/VerticalBtn"]
+z_index = -1
 normal = ExtResource( 16 )
 pressed = ExtResource( 8 )
 action = "move_up"
 
 [node name="Down" type="TouchScreenButton" parent="UserInterface/DirectionButton/VerticalBtn"]
 position = Vector2( 0, 47 )
+z_index = -1
 normal = ExtResource( 10 )
 pressed = ExtResource( 15 )
 action = "move_bottom"
@@ -278,12 +280,14 @@ __meta__ = {
 }
 
 [node name="Left" type="TouchScreenButton" parent="UserInterface/DirectionButton/VerticalBtn2"]
+z_index = -1
 normal = ExtResource( 11 )
 pressed = ExtResource( 14 )
 action = "move_left"
 
 [node name="Right" type="TouchScreenButton" parent="UserInterface/DirectionButton/VerticalBtn2"]
 position = Vector2( 57, 0 )
+z_index = -1
 normal = ExtResource( 9 )
 pressed = ExtResource( 17 )
 action = "move_right"

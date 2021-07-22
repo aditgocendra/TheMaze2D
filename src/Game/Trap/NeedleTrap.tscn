@@ -361,6 +361,7 @@ tracks/14/keys = {
 }
 
 [node name="NeedleTrap" type="Node2D"]
+scale = Vector2( 2, 2 )
 script = ExtResource( 3 )
 
 [node name="AreaHitTrap" type="Area2D" parent="."]
