@@ -1,0 +1,173 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Assets/Background/Background-About.png" type="Texture" id=1]
+[ext_resource path="res://src/Assets/Font/joystix_dynamic24.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/Assets/Font/joystix_dynamic16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/UserInterface/About/About.gd" type="Script" id=4]
+[ext_resource path="res://src/Assets/Font/joystix_dynamic14.tres" type="DynamicFont" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "highligh_button"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/Container1/BtnReview:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/Container1/SuppContainer/AdsView:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/Container1/SuppContainer/Donation:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Background/Container1/SuppContainer/Share:custom_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="About" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Header" type="Label" parent="Background"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -50.0
+margin_top = 26.1684
+margin_right = 50.0
+margin_bottom = 55.1684
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "About"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container1" type="VBoxContainer" parent="Background"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -400.0
+margin_top = 73.103
+margin_right = 400.0
+margin_bottom = 183.103
+rect_min_size = Vector2( 800, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P1" type="Label" parent="Background/Container1"]
+margin_right = 800.0
+margin_bottom = 66.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Thank you for downloading and trying this game, I am very happy if you are willing to give criticism or suggestions,  for this game you can give it here:"
+align = 1
+autowrap = true
+
+[node name="BtnReview" type="Button" parent="Background/Container1"]
+margin_top = 70.0
+margin_right = 800.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Click Here"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SuppHeader" type="Label" parent="Background/Container1"]
+margin_top = 114.0
+margin_right = 800.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "U need support me ?"
+align = 1
+valign = 1
+
+[node name="SuppContainer" type="HBoxContainer" parent="Background/Container1"]
+margin_top = 158.0
+margin_right = 800.0
+margin_bottom = 181.0
+
+[node name="AdsView" type="Button" parent="Background/Container1/SuppContainer"]
+margin_right = 264.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "View Ads"
+flat = true
+
+[node name="Share" type="Button" parent="Background/Container1/SuppContainer"]
+margin_left = 268.0
+margin_right = 532.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Share"
+flat = true
+
+[node name="Donation" type="Button" parent="Background/Container1/SuppContainer"]
+margin_left = 536.0
+margin_right = 800.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Donation"
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "highligh_button"
+playback_speed = 0.2
+anims/highligh_button = SubResource( 1 )
+
+[connection signal="pressed" from="Background/Container1/BtnReview" to="." method="_on_BtnReview_pressed"]

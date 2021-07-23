@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/UserInterface/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://src/Assets/Button/Quit-Btn.png" type="Texture" id=2]
-[ext_resource path="res://src/Assets/Background/Background.png" type="Texture" id=3]
+[ext_resource path="res://src/Assets/Background/Background-MainMenu.png" type="Texture" id=3]
 [ext_resource path="res://src/Assets/Button/Start-Btn.png" type="Texture" id=4]
 [ext_resource path="res://src/Assets/Font/joystix_dynamic14.tres" type="DynamicFont" id=5]
 
