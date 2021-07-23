@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/Assets/Font/joystix_dynamic.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/Assets/Font/joystix_dynamic14.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/UserInterface/AdventureMenu/AdventureMenu.gd" type="Script" id=2]
 
 [node name="AdventureMenu" type="Control"]
