@@ -2,8 +2,7 @@ extends Control
 
 
 
-func _on_Start_pressed():
-# warning-ignore:return_value_discarded
+func _on_Adventure_pressed():
 	get_tree().change_scene("res://src/UserInterface/AdventureMenu/AdventureMenu.tscn")
 
 

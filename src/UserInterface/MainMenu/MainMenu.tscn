@@ -1,10 +1,33 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/UserInterface/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://src/Assets/Button/Quit-Btn.png" type="Texture" id=2]
-[ext_resource path="res://src/Assets/Background/Background-MainMenu.png" type="Texture" id=3]
-[ext_resource path="res://src/Assets/Button/Start-Btn.png" type="Texture" id=4]
+[ext_resource path="res://src/Assets/Button/Options-Btn.png" type="Texture" id=3]
+[ext_resource path="res://src/Assets/Button/Adventure-Btn.png" type="Texture" id=4]
 [ext_resource path="res://src/Assets/Font/joystix_dynamic14.tres" type="DynamicFont" id=5]
+[ext_resource path="res://src/Assets/Button/Multiplayer-Btn.png" type="Texture" id=6]
+[ext_resource path="res://src/Assets/UserInterface/Header-MainMenu.png" type="Texture" id=7]
+[ext_resource path="res://src/Assets/UserInterface/Character.png" type="Texture" id=8]
+[ext_resource path="res://src/Assets/UserInterface/Map-Screenshoot.png" type="Texture" id=9]
+[ext_resource path="res://src/Assets/Button/Adventure-Btn-Active.png" type="Texture" id=10]
+[ext_resource path="res://src/Assets/Button/Multiplayer-Btn-Active.png" type="Texture" id=11]
+[ext_resource path="res://src/Assets/Button/Quit-Btn-Active.png" type="Texture" id=12]
+[ext_resource path="res://src/Assets/Button/Options-Btn-Active.png" type="Texture" id=13]
+
+[sub_resource type="Animation" id=1]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/Top-Header:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1e-05 ), Vector2( 1, 1 ) ]
+}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -14,44 +37,97 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 1
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+[node name="Top-Header" type="TextureRect" parent="Background"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -255.0
+margin_right = 255.0
+margin_bottom = 88.0
+rect_scale = Vector2( 1, 1e-05 )
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContainerImage" type="HBoxContainer" parent="Background"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -79.0
-margin_top = -50.0
-margin_right = 79.0
-margin_bottom = 50.0
+margin_left = -416.0
+margin_top = -157.282
+margin_right = 416.0
+margin_bottom = 212.718
+rect_min_size = Vector2( 832, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="TextureButton" parent="Background/VBoxContainer"]
-margin_right = 158.0
-margin_bottom = 48.0
+[node name="CharacterImage" type="TextureRect" parent="Background/ContainerImage"]
+margin_right = 414.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+texture = ExtResource( 8 )
+
+[node name="Maze" type="TextureRect" parent="Background/ContainerImage"]
+margin_left = 481.0
+margin_top = 75.0
+margin_right = 768.0
+margin_bottom = 295.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource( 9 )
+
+[node name="ContainerBtn" type="VBoxContainer" parent="Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.5
+margin_top = -108.0
+margin_right = 128.5
+margin_bottom = 108.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Adventure" type="TextureButton" parent="Background/ContainerBtn"]
+margin_right = 257.0
+margin_bottom = 51.0
 texture_normal = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_pressed = ExtResource( 10 )
 
-[node name="Quit" type="TextureButton" parent="Background/VBoxContainer"]
-margin_top = 52.0
-margin_right = 158.0
-margin_bottom = 100.0
+[node name="Options" type="TextureButton" parent="Background/ContainerBtn"]
+margin_top = 55.0
+margin_right = 257.0
+margin_bottom = 106.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 13 )
+
+[node name="Multiplayer" type="TextureButton" parent="Background/ContainerBtn"]
+margin_top = 110.0
+margin_right = 257.0
+margin_bottom = 161.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 11 )
+
+[node name="Quit" type="TextureButton" parent="Background/ContainerBtn"]
+margin_top = 165.0
+margin_right = 257.0
+margin_bottom = 216.0
 texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 12 )
 
-[node name="VersionGame" type="Label" parent="Background"]
+[node name="VersionGame" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -67,5 +143,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Background/VBoxContainer/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="Background/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+anims/start = SubResource( 1 )
+
+[connection signal="pressed" from="Background/ContainerBtn/Adventure" to="." method="_on_Adventure_pressed"]
+[connection signal="pressed" from="Background/ContainerBtn/Quit" to="." method="_on_Quit_pressed"]
