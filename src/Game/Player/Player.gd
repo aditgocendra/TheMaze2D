@@ -10,6 +10,14 @@ var direction = Vector2.ZERO
 
 var is_dead = false
 
+onready var sprite_root = $SpriteRoot
+
+
+func _ready():
+	var instance_red_hat = preload("res://src/Game/Player/AnimatedSprite/RedHat.tscn").instance()
+	var instance_warrior  = preload("res://src/Game/Player/AnimatedSprite/Warrior.tscn").instance()
+	sprite_root.add_child(instance_warrior)
+
 
 func _physics_process(delta):
 	#calculate direction
@@ -26,10 +34,10 @@ func _physics_process(delta):
 	move_and_collide(velocity)
 	
 	var anim = animated_player()
-	$AnimatedSprite.play(anim)
+	sprite_root.get_child(0).play(anim)
 	
-	if $AnimatedSprite.animation == "Dead" and is_dead:
-		yield($AnimatedSprite, "animation_finished")
+	if sprite_root.get_child(0).animation == "Dead" and is_dead:
+		yield(sprite_root.get_child(0), "animation_finished")
 		PlayerSignal.dead = true
 		 
 		
@@ -40,14 +48,26 @@ func animated_player():
 	if is_dead:
 		animation = "Dead"
 	else:
-		if direction.x > 0:
-			$AnimatedSprite.flip_h = false
-		if direction.x < 0:
-			$AnimatedSprite.flip_h = true
+		if sprite_root.get_child(0).name == "RedHat":
 			
-		if direction.x != 0 or direction.y != 0:
-			animation = "Run"
-		else: animation = "Idle"
+			if direction.x > 0:
+				sprite_root.get_child(0).flip_h = false
+			if direction.x < 0:
+				sprite_root.get_child(0).flip_h = true
+				
+			if direction.x != 0 or direction.y != 0:
+				animation = "Run"
+		else:
+			if direction.x > 0:
+				animation = "RunRight"
+			elif direction.x < 0:
+				animation = "RunLeft"
+			elif direction.y < 0:
+				animation = "RunUp"
+			else : animation = "RunBottom" 
+			
+		if direction.x == 0 and direction.y == 0:
+			animation = "Idle"
 	
 	return animation
 
