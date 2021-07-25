@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Assets/Button/Close-Btn.png" type="Texture" id=1]
+[ext_resource path="res://src/Assets/Font/joystix_dynamic14.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/Assets/Font/joystix_dynamic16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/UserInterface/Popup/BoxPopup.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.117647, 0.109804, 0.109804, 1 )
+shadow_size = 3
+
+[sub_resource type="Animation" id=2]
+resource_name = "start"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[node name="BoxPopup" type="Control"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+rect_scale = Vector2( 1e-05, 1e-05 )
+script = ExtResource( 4 )
+
+[node name="Background" type="Panel" parent="."]
+margin_left = -125.0
+margin_top = -75.0
+margin_right = 125.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 250, 150 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -121.0
+margin_top = 4.24264
+margin_right = 121.0
+margin_bottom = 29.2426
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeaderPanel" type="Panel" parent="Background/HBoxContainer"]
+margin_right = 220.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 220, 25 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Background/HBoxContainer/HeaderPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.0
+margin_top = -8.5
+margin_right = 72.0
+margin_bottom = 8.5
+custom_fonts/font = ExtResource( 2 )
+text = "Notification"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseBtn" type="TextureButton" parent="Background/HBoxContainer"]
+margin_left = 224.0
+margin_top = 3.0
+margin_right = 242.0
+margin_bottom = 21.0
+size_flags_vertical = 4
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -119.5
+margin_top = -21.5
+margin_right = 119.5
+margin_bottom = 21.5
+custom_fonts/font = ExtResource( 3 )
+text = "Not Available in this version"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+anims/start = SubResource( 2 )
+
+[connection signal="pressed" from="Background/HBoxContainer/CloseBtn" to="." method="_on_CloseBtn_pressed"]

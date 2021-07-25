@@ -75,12 +75,24 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("DialogContainer/HBoxContainer:rect_scale")
+tracks/0/path = NodePath("DialogContainer/HBoxContainer/CharacterDialog:rect_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DialogContainer/HBoxContainer/DialogBackground:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -154,6 +166,13 @@ anims/hide_dialog = SubResource( 4 )
 anims/show_dialog = SubResource( 5 )
 anims/trans_map = SubResource( 6 )
 anims/win_dialog = SubResource( 7 )
+
+[node name="Instuction" type="Label" parent="UserInterface"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DialogContainer" type="Control" parent="UserInterface"]
 pause_mode = 2
