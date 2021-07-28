@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var dark_map = preload("res://src/Game/Map/Adventure/Level1/DarkMap.tscn").instance()
-onready var light_map = preload("res://src/Game/Map/Adventure/Level1/LightMap.tscn").instance()
+var dark_map
+var light_map
 
 onready var map_node = $Map
 onready var animation_player = $UserInterface/AnimationPlayer 
@@ -15,6 +15,7 @@ var empty_chest_text
 
 
 func _ready():
+	instance_level()
 # warning-ignore:return_value_discarded
 	PlayerSignal.connect("player_dead", self, "_on_player_dead")
 # warning-ignore:return_value_discarded
@@ -27,7 +28,15 @@ func _ready():
 	if check_show_dialog():
 		animation_player.play("show_dialog")
 	
-	
+func instance_level():
+	if PlayerSignal.level_selection == 0:
+		dark_map = preload("res://src/Game/Map/Adventure/Level1/DarkMap.tscn").instance()
+		light_map = preload("res://src/Game/Map/Adventure/Level1/LightMap.tscn").instance()
+	else:
+		dark_map = preload("res://src/Game/Map/Adventure/Level2/DarkMap.tscn").instance()
+		light_map = preload("res://src/Game/Map/Adventure/Level2/LightMap.tscn").instance() 
+
+
 func _input(event):
 	if event.is_action_pressed("change_map"):
 		animation_player.play("trans_map")

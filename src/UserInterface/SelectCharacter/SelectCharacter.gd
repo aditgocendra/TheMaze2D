@@ -23,7 +23,6 @@ func _on_RightArrow_pressed():
 func change_character(selected):
 	if selected == 0:
 		name_character.text = "Redhat"
-		
 	else: 
 		name_character.text  = "Warrior"
 		
@@ -41,4 +40,4 @@ func _on_EnterGame_pressed():
 	if selection == 0:
 		PlayerSignal.character_selection = "Redhat"
 	else: PlayerSignal.character_selection = "Warrior"
-	get_tree().change_scene("res://src/Game/Game.tscn")
+	get_tree().change_scene("res://src/UserInterface/AdventureMenu/AdventureMenu.tscn")

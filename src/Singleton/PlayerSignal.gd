@@ -12,6 +12,7 @@ var win = false setget on_win
 var empty_chest = false setget on_chest_empty
 
 var character_selection = "Redhat"
+var level_selection = 0
 
 func on_dead(_dead):
 	dead = _dead

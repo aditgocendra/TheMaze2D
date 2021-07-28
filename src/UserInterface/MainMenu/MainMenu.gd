@@ -4,7 +4,7 @@ onready var pop_up = load("res://src/UserInterface/Popup/BoxPopup.tscn")
 
 
 func _on_Adventure_pressed():
-	get_tree().change_scene("res://src/UserInterface/AdventureMenu/AdventureMenu.tscn")
+	get_tree().change_scene("res://src/UserInterface/SelectCharacter/SelectCharacter.tscn")
 
 
 func _on_Quit_pressed():

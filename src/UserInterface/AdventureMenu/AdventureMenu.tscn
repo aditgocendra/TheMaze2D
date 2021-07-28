@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Assets/Font/joystix_dynamic14.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/UserInterface/AdventureMenu/AdventureMenu.gd" type="Script" id=2]
+[ext_resource path="res://src/Assets/Font/joystix_dynamic24.tres" type="DynamicFont" id=3]
 
 [node name="AdventureMenu" type="Control"]
 anchor_right = 1.0
@@ -22,12 +23,15 @@ __meta__ = {
 [node name="Header" type="Label" parent="Background"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -60.0
-margin_top = 61.4026
-margin_right = 60.0
-margin_bottom = 78.4026
-custom_fonts/font = ExtResource( 1 )
+margin_left = -100.0
+margin_top = 40.9813
+margin_right = 100.0
+margin_bottom = 69.9813
+custom_fonts/font = ExtResource( 3 )
 text = "Level Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ButtonContainer" type="VBoxContainer" parent="Background"]
 anchor_left = 0.5
@@ -69,3 +73,4 @@ text = " Level 3 "
 flat = true
 
 [connection signal="pressed" from="Background/ButtonContainer/Level1" to="." method="_on_Level1_pressed"]
+[connection signal="pressed" from="Background/ButtonContainer/Level2" to="." method="_on_Level2_pressed"]
