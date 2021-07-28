@@ -14,9 +14,12 @@ onready var sprite_root = $SpriteRoot
 
 
 func _ready():
-	var instance_red_hat = preload("res://src/Game/Player/AnimatedSprite/RedHat.tscn").instance()
-	var instance_warrior  = preload("res://src/Game/Player/AnimatedSprite/Warrior.tscn").instance()
-	sprite_root.add_child(instance_warrior)
+	var instance_character
+	if PlayerSignal.character_selection == "Redhat":
+		instance_character = preload("res://src/Game/Player/AnimatedSprite/RedHat.tscn").instance()
+	else: instance_character  = preload("res://src/Game/Player/AnimatedSprite/Warrior.tscn").instance()
+	
+	sprite_root.add_child(instance_character)
 
 
 func _physics_process(delta):
